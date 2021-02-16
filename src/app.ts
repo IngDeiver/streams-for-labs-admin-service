@@ -12,6 +12,9 @@ Database.connect();
 // START
 // eslint-disable-next-line no-console
 if (process.env.NODE_ENV !== 'test') {
-  server.listen(() => logger.info(`🚀 App listening on the port ${PORT}`));
+  server.listen(() => {
+    logger.info(`🚀 Admin service listening on port ${PORT}`)
+    logger.info(`Only accept request from ${process.env.GATEWAY_URL}`)
+  });
 }
 export default server;
