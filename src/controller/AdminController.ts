@@ -2,7 +2,6 @@
 /* eslint-disable class-methods-use-this */
 import { NextFunction, Response, Request } from 'express';
 import { IConfig } from '../interfaces';
-import { Config } from '../models';
 import { HttpException } from '../exceptions';
 import { AdminService } from '../services';
 /**
