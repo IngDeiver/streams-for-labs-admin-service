@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-constructor */
 
-import { IsNumber, IsNotEmpty} from 'class-validator';
+import { IsNumber, IsNotEmpty, IsOptional} from 'class-validator';
 
 /**
  *
@@ -11,12 +11,14 @@ import { IsNumber, IsNotEmpty} from 'class-validator';
  * @class ConfigDTO
  */
 class ConfigDTO {
-    @IsNotEmpty()
+ 
     @IsNumber()
+    @IsOptional()
     public max: number;
 
-    @IsNotEmpty()
+
     @IsNumber()
+    @IsOptional()
     public min: number;
 
     @IsNotEmpty()

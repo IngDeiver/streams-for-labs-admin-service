@@ -45,9 +45,8 @@ class AdminControler {
     try {
       const { id } = req.params;
       const dft = req.body.default
-      const { max, min } = req.body;
       const configUpdated: IConfig | null = await AdminService
-        .updateById(id, { max, min, default:dft });
+        .updateById(id, { default:dft });
       if (!configUpdated) throw new HttpException(404, 'Config not found');
       res.json(configUpdated);
     } catch (error) {

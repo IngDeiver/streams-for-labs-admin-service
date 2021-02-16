@@ -27,27 +27,23 @@ it('should get list configs', async () => {
 describe('should update a config', () => {
   it('should update with 200 status', async () => {
     const id: string = '602af24346ed1e87d01331f1'; // verify that this id exist in your database
-    const config = { 
-      max: 12, 
-      min: 4,
+    const config = {
       default: 6
     };
     
     const response = await request.put(`${baseUri}/${id}`)
       .send(config);
     expect(response.status).toBe(200);
-    expect(response.body.max).toEqual(config.max);
+    expect(response.body.default).toEqual(config.default);
   });
 
   it('should fail with 404 status', async () => {
     const id = '5fe0287346956c638f701bd2';
     const response = await request.put(`${baseUri}/${id}`)
       .send({ 
-        max: 12, 
-        min: 4,
         default: 6
       });
     expect(response.status).toBe(404);
-    expect(response.body.username).toBeUndefined();
+    expect(response.body.default).toBeUndefined();
   });
 });
