@@ -3,7 +3,7 @@ import Database from './config/database';
 import './config/dotenv';
 import { logger } from './utils';
 
-const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3002;
+const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 6000;
 const server: Server = Server.init(PORT);
 
 // database
@@ -14,7 +14,7 @@ Database.connect();
 if (process.env.NODE_ENV !== 'test') {
   server.listen(() => {
     logger.info(`🚀 Admin service listening on port ${PORT}`)
-    logger.info(`Only accept request from ${process.env.GATEWAY_URL}`)
+    logger.info(`Only accept request from ${process.env.ORIGIN_URL}`)
   });
 }
 export default server;
